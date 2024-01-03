@@ -87,17 +87,20 @@ app.post("/answer",async(req,res)=>{
   if(completeTime<=120){
     timeIq=10
   }
-  else {
+  else if(completeTime<=320){
     timeIq=10-(completeTime-120)/20
+  }
+  else{
+    timeIq=0;
   }
   const iq=parseFloat(.6*correct_answers+.4*timeIq).toFixed(2);
   let details=[req.body.data.username,req.body.data.cs,req.body.data.ss,correct_answers,completeTime,req.body.data.ph,req.body.data.email,iq,req.body.data.category]
   let query1='insert into student(name,school,std,score,time,phone_number,email,IQ,category) values (?)'
   console.log(query1); 
-  const student=await connection.promise().query(
-    query1,[details]
-  )
-  res.json(correct_answers)
+  // const student=await connection.promise().query(
+  //   query1,[details]
+  // )
+  res.json({correct_answers,iq,completeTime})
 })
 
 app.listen(5000,()=>{

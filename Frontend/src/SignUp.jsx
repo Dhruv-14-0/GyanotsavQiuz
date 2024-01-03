@@ -13,7 +13,7 @@ function SignUp() {
 
     const handleChange = (event) => {
         setData((prev) => ({ ...prev, [event.target.name]: event.target.value }))
-        console.log(data);
+        // console.log(data);
     }
 
     const navigate = useNavigate();
@@ -143,7 +143,7 @@ function SignUp() {
                         <input type="text" name="username" className="form-input w-full px-4 py-2 border rounded" placeholder="Your Name" required onChange={handleChange} autoComplete='off' />
                     </div>
                     <div className="mb-3">
-                        <input type="email" name="email" className="form-input w-full px-4 py-2 border rounded" placeholder="name@example.com" required onChange={handleChange} autoComplete='off' />
+                        <input type="email" name="email" className="form-input w-full px-4 py-2 border rounded" placeholder="Your email address" required onChange={handleChange} autoComplete='off' />
                     </div>
                     <div className="mb-3">
                         <input type="text" name="cs" className="form-input w-full px-4 py-2 border rounded" placeholder="College/School" required onChange={handleChange} autoComplete='off' />
@@ -158,9 +158,9 @@ function SignUp() {
                     {/* Category selection */}
                     <div className="mb-3">
                         <select className="form-select w-full px-4 py-2 border rounded" defaultValue={"select the category"} required onChange={handleChange} name='category'>
-                            <option className="">Select the category</option>
+                            {/* <option className="">Select the category</option> */}
                             <option value={1}>Technical</option>
-                            <option value={2}>General</option>
+                            <option value={2} >General</option>
                             <option value={3}>History</option>
                         </select>
                     </div>
