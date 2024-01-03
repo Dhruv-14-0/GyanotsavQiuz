@@ -14,11 +14,11 @@ function App() {
   // const [isActive,setIsActive] = useState(false)
   const location = useLocation();
   const data = location.state;
-  console.log(data);
+  // console.log(data);
   useEffect(() => {
     axios.get(`http://localhost:5000/questions/${data.category}`).then((res) => setQuestions(res.data))
     setTime(new Date())
-    console.log(time);
+    // console.log(time);
   }, []);
 
 
@@ -35,11 +35,11 @@ function App() {
     event.preventDefault();
     // console.log(answer);
     let endTime = new Date()
-    console.log(endTime);
+    // console.log(endTime);
     const completeTime = Math.floor(endTime.getTime() - time.getTime()) / 1000;
     axios.post('http://localhost:5000/answer', { answer, data, completeTime })
       .then(res => {
-        console.log(res.data);
+        // console.log(res.data);
         navigate('/result', { state: res.data })
       })
       .catch(err => console.log(err))
